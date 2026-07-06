@@ -1,0 +1,83 @@
+.tabla-productos-holder {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 1000px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+
+    thead {
+      background-color: @primary-background-color;
+      color: @secondary-background-color;
+
+      th {
+        padding: 0.75rem;
+        text-align: left;
+        font-weight: bold;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #ccc;
+
+        
+
+        &:hover {
+          background-color: darken(@primary-background-color, 30%);
+          transition: background-color 0.3s ease;
+        }
+      }
+
+      td {
+        padding: 0.75rem;
+        text-align: left;
+        color: @secondary-background-color;
+      }
+    }
+  }
+}
+
+// Responsive tabla estilo lista
+@media (max-width: 768px) {
+  .tabla-productos-holder table,
+  .tabla-productos-holder thead,
+  .tabla-productos-holder tbody,
+  .tabla-productos-holder th,
+  .tabla-productos-holder td,
+  .tabla-productos-holder tr {
+    display: block;
+  }
+
+  .tabla-productos-holder thead {
+    display: none;
+  }
+
+  .tabla-productos-holder tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.5rem;
+    background: @accent-background-color;
+  }
+
+  .tabla-productos-holder td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border: none;
+  }
+
+  .tabla-productos-holder td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-left: 0.5rem;
+    font-weight: bold;
+    color: @secondary-background-color;
+  }
+}
